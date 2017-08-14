@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>v-bind style</title>
+</head>
+<body>
+	<div id='app'>
+		<p v-bind:style='json'>VUE</p>
+	</div>
+	<script src='../js/vue.js'></script>
+	<script>
+		new Vue({
+			el : '#app',
+			data : {
+				json : {
+					color : 'red',
+					fontSize : '50px'
+				}
+				
+			}
+		});
+	</script>
+</body>
+</html>

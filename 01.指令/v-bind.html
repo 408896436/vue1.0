@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>v-bind</title>
+</head>
+<body>
+	<div id='app'>
+		<a v-bind:href=url v-bind:title=title>
+			<img v-bind:src=src>
+		</a>
+	</div>
+	<script src='../js/vue.js'></script>
+	<script>
+		new Vue({
+			el : '#app',
+			data : {
+				url : 'http://www.baidu.com',
+				title : '百度一下',
+				src : 'https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png'
+			}
+		});
+	</script>
+</body>
+</html>

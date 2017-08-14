@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>v-bind 类名 - 数组</title>
+	<style>
+		.red{color: red;}
+		.size{font-size: 50px;}
+	</style>
+</head>
+<body>
+	<div id='app'>
+		<p v-bind:class='[r,s]'>VUE</p>
+	</div>
+	<script src='../js/vue.js'></script>
+	<script>
+		new Vue({
+			el : '#app',
+			data : {
+				r : 'red',
+				s : 'size'
+			}
+		});
+	</script>
+</body>
+</html>

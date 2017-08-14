@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>v-on传参</title>
+</head>
+<body>
+	<div id='app'>
+		点击的列表会边红
+		<ul>
+			<li v-on:click='setColor($event)'>1</li>
+			<li v-on:click='setColor($event)'>2</li>
+			<li v-on:click='setColor($event)'>3</li>
+			<li v-on:click='setColor($event)'>4</li>
+		</ul>
+	</div>
+	<script src='../js/vue.js'></script>
+	<script>
+		new Vue({
+			el : '#app',
+			methods : {
+				setColor : function(event){
+					event.currentTarget.style.background = 'red';
+				}
+			}
+		});
+	</script>
+</body>
+</html>
