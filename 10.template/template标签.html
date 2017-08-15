@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>template标签</title>
+</head>
+<body>
+	<div id='app'>
+		<lcf></lcf>
+	</div>
+	<template id='aaa'>
+		<h2 @click="say">{{msg}}</h2>
+	</template>
+	<script src='../js/vue.js'></script>
+	<script>
+		var vm = new Vue({
+			el : '#app',
+			components : {
+				'lcf' : {
+					data(){
+						return {
+							msg : '标题2'
+						}
+					},
+					methods : {
+						say:function(){
+							alert('怎么了？');
+						}
+					},
+					template  : '#aaa'
+				}
+			}
+		});
+	</script>
+</body>
+</html>

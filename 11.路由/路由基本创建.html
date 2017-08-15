@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>路由基本创建</title>
+</head>
+<body>
+	<div id='app'>
+		<ul>
+			<!--1-->
+			<li><a v-link="{path:'/index'}">主页</a></li>
+			<li><a v-link="{path:'/news'}">新闻</a></li>
+		</ul>
+		<div>
+			<!--2-->
+			<router-view></router-view>
+		</div>
+	</div>
+	
+	<template id='index'>
+		<h2>我是主页</h2>
+	</template>
+
+	<template id='news'>
+		<h2>我是新闻页</h2>
+	</template>
+		
+	<script src='../js/vue.js'></script>
+	<script src='../js/vue-router.js'></script>
+	<script>
+		//3
+		var App = Vue.extend();
+
+		//4
+		var Index = Vue.extend({
+			template : '#index'
+		});
+		var News = Vue.extend({
+			template : '#news'
+		});
+
+		//5
+		var router = new VueRouter();
+
+		//6
+		router.map({
+			'index' : {
+				component : Index
+			},
+			'news' : {
+				component : News
+			}
+		});
+
+		//7
+		router.start(App, '#app');
+
+		//8
+		router.redirect({
+			'/':'/index'
+		});
+
+	</script>
+</body>
+</html>

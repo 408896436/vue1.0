@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>父组件获取子组件数据</title>
+</head>
+<body>
+	<div id='app'>
+		<aaa></aaa>
+	</div>
+	
+	<template id='father'>
+		father get son val : {{fval}}
+		<br/>
+		<bbb @sendval='get'></bbb>
+
+	</template>
+
+	<template id='son'>
+		son val : {{sval}}
+		<input type='button' value='send-sval-to-father' @click='send'>
+	</template>
+
+	<script src='../js/vue.js'></script>
+	<script>
+
+		new Vue({
+			el : '#app',
+			components : {
+				aaa : {
+					template : '#father',
+					data(){
+						return {
+							fval : 0
+						}
+					},
+					methods : {
+						get : function(val){
+							this.fval = val;
+						}
+					},
+					components : {
+						bbb : {
+							data(){
+								return {
+									sval : 100
+								}
+							},
+							methods : {
+								send : function(){
+									this.$emit('sendval', this.sval);
+								}
+							},
+							template : '#son'
+						}
+					}
+				}
+			}
+		});
+
+	</script>
+</body>
+</html>

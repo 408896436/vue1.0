@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>局部组件</title>
+</head>
+<body>
+	<div id='app'>
+		<lcf></lcf>
+	</div>
+	<script src='../js/vue.js'></script>
+	<script>
+		var vm = new Vue({
+			el : '#app',
+			components : {
+				'lcf' : {
+					data(){
+						return {
+							msg : '标题2'
+						}
+					},
+					methods : {
+						say:function(){
+							alert('怎么了？');
+						}
+					},
+					template  : '<h2 @click="say">{{msg}}</h2>'
+				}
+			}
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>v-text</title>
+</head>
+<body>
+	<div id='app'>
+		<span v-text='msg'></span>
+	</div>
+	<script src='../js/vue.js'></script>
+	<script>
+		var vm = new Vue({
+			el : '#app',
+			data : {
+				msg : 'GGG'
+			}
+			
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>自定义键盘信息</title>
+</head>
+<body>
+	<div id='app'>
+		<input @keydown.ctrl='show()' type='text'>
+	</div>
+	<script src='../js/vue.js'></script>
+	<script>
+		Vue.directive('on').keyCodes.ctrl = 17; //on代表绑定
+		new Vue({
+			el : '#app',
+			methods : {
+				show : function(et){
+					alert('ctrl');
+				}
+			}
+		});
+	</script>
+</body>
+</html>

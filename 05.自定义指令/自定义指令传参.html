@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>自定义指令传参</title>
+</head>
+<body>
+	<div id='app'>
+		<span v-set='{size : "40px", color : "blue"}'>hello</span>
+	</div>
+	<script src='../js/vue.js'></script>
+	<script>
+		Vue.directive('set', function(json){
+			this.el.style.fontSize = json.size;
+			this.el.style.color = json.color;
+		});
+		new Vue({
+			el : '#app'
+		});
+	</script>
+</body>
+</html>

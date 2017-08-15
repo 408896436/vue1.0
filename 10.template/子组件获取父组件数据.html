@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>子组件获取父组件数据</title>
+</head>
+<body>
+	<div id='app'>
+		<aaa></aaa>
+	</div>
+	
+	<template id='father'>
+		father val : {{val}}
+		<br/>
+		<bbb :get-father-fval='val'></bbb>
+	</template>
+
+	<template id='son'>
+		son get father val : {{getFatherFval}}
+	</template>
+
+	<script src='../js/vue.js'></script>
+	<script>
+
+		new Vue({
+			el : '#app',
+			components : {
+				aaa : {
+					data(){
+						return {
+							val : 100
+						}
+					},
+					template : '#father',
+					components : {
+						bbb : {
+							props : {
+								getFatherFval : Number	
+							},
+							template : '#son'
+						}
+					}
+				}
+			}
+		});
+
+	</script>
+</body>
+</html>

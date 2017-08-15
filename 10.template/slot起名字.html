@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>slot起名字</title>
+</head>
+<body>
+	<div id='app'>
+		<aa>
+			<ul slot='ul-slot'>
+				<li>1</li>
+				<li>2</li>
+			</ul>
+			<ul slot='ol-slot'>
+				<li>3</li>
+				<li>4</li>
+			</ul>
+		</aa>
+	</div>
+	<template id='aa'>
+		<h1>标题1</h1>
+		<slot name='ul-slot'></slot>		<!--这里只显示ul-slot，不显示ol-slot-->
+	</template>
+	<script src='../js/vue.js'></script>
+	<script>
+		new Vue({
+			el : '#app',
+			components : {
+				aa : {
+					template : '#aa'
+				}
+			}
+		})
+	</script>
+</body>
+</html>

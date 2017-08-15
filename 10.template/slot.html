@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>slot</title>
+</head>
+<body>
+	<div id='app'>
+		<aa>
+			<ul>
+				<li>1</li>
+				<li>2</li>
+			</ul>
+		</aa>
+	</div>
+	<template id='aa'>
+		<h1>标题1</h1>
+		<slot></slot>		
+	</template>
+	<script src='../js/vue.js'></script>
+	<script>
+		new Vue({
+			el : '#app',
+			components : {
+				aa : {
+					template : '#aa'
+				}
+			}
+		})
+	</script>
+</body>
+</html>

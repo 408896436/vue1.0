@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>拖拽指令例子</title>
+	<style>
+		body{margin: 0; padding: 0;}
+		.box{width: 100px; height: 100px; background: red; position: absolute; top: 0; left: 0;}
+	</style>
+</head>
+<body>
+	<div id='app'>
+		<div class='box' v-drag></div>
+	</div>
+	<script src='../js/vue.js'></script>
+	<script>
+		Vue.directive('drag', function(){
+			var div = this.el;
+			div.onmousedown = function(e){
+				disX = e.clientX - div.offsetLeft;
+				disY = e.clientY - div.offsetTop;
+				document.onmousemove = function(e){
+					var l = e.clientX - disX;
+					var t = e.clientY - disY;
+					div.style.left = l + 'px';
+					div.style.top = t + 'px';
+				}
+				document.onmouseup = function(){
+					document.onmousedown = document.onmousemove = null;
+				}
+			}	
+		});
+		new Vue({
+			el : '#app'
+		});
+	</script>
+</body>
+</html>

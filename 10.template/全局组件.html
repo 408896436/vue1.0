@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>全局组件</title>
+</head>
+<body>
+	<div id='app'>
+		<lcf></lcf>
+	</div>
+	<script src='../js/vue.js'></script>
+	<script>
+		Vue.component('lcf', {
+			data(){
+				return {
+					msg : '标题2'
+				}
+			},
+			methods : {
+				say:function(){
+					alert('怎么了？');
+				}
+			},
+			'template' : '<h2 @click="say">{{msg}}</h2>'
+		});	
+		var vm = new Vue({
+			el : '#app'
+		});
+	</script>
+</body>
+</html>

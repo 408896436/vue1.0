@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>自定义指令</title>
+</head>
+<body>
+	<div id='app'>
+		<span v-red>vue</span>
+	</div>
+	<script src='../js/vue.js'></script>
+	<script>
+		Vue.directive('red', function(){
+			this.el.style.color = 'red';
+		});
+		new Vue({
+			el : '#app'
+		});
+	</script>
+</body>
+</html>

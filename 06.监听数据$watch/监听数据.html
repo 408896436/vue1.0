@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>监听数据</title>
+</head>
+<body>
+	<div id='app'>
+		{{msg}}
+	</div>
+	<script src='../js/vue.js'></script>
+	<script>
+		var vm = new Vue({
+			el : '#app',
+			data : {
+				msg : 0
+			}
+		});
+		vm.$watch('msg', function(){
+			alert('msg发生变化了');
+		});
+		document.onclick = function(){
+			vm.msg = 22;
+		}
+	</script>
+</body>
+</html>
