@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>get</title>
+</head>
+<body>
+	<div id='app'>
+		<input type='button' value='button' @click='get()'>
+	</div>
+	<script src='../js/vue.js'></script>
+	<script src='../js/vue-resource.js'></script>
+	<script>
+		new Vue({
+			el : '#app',
+			methods : {
+				get : function()
+				{
+					this.$http.get('get.php', {
+						a : 1,
+						b : 2
+					}).then(function(res){
+						alert(res.data);
+					}, function(res){
+						alert(res.status);
+					});
+				}
+			}
+		})
+	</script>
+</body>
+</html>

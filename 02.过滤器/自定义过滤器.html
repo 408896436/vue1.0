@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>自定义过滤器</title>
+</head>
+<body>
+	<div id='app'>
+		{{time | showtime}}
+	</div>
+	<script src='../js/vue.js'></script>
+	<script>
+		Vue.filter('showtime', function(val){
+			var date = new Date();
+			return date.getFullYear() + '/' + (date.getMonth()+1) + '/' + date.getDate() + '/' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds();
+		});
+		new Vue({
+			el : '#app',
+			data : {
+				time : Date.now()
+			}
+		})
+	</script>
+</body>
+</html>

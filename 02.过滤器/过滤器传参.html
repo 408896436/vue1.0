@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id='app'>
+		<p>{{12  | moneny '$'}}</p> 
+	</div>
+	<script src='../js/vue.js'></script>
+	<script>
+		Vue.filter('moneny', function(val, str){
+			return val + str
+		});
+
+		new Vue({
+			el : '#app'
+		});
+	</script>
+</body>
+</html>
