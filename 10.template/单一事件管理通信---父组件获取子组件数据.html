@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>单一事件管理通信---父组件获取子组件数据</title>
+</head>
+<body>
+	<div id='app'>
+		<aaa></aaa>
+	</div>
+
+	<template id='aaa'>
+		父组件数据 --> {{msg}} 
+		<br/>
+		<bbb></bbb>
+	</template>
+
+	<template id='bbb'>
+		子组件数据 -- >{{msg}} <input type='button' value='发送数据给父组件' @click='send'>
+	</template>
+
+	<script src='vue.js'></script>
+	<script>
+
+		var Event = new Vue();
+
+		new Vue({
+			el : '#app',
+			components : {
+				aaa : {
+					data(){
+						return {
+							msg : '无'
+						}
+					},
+					ready : function(){
+						Event.$on('Bmsg', function(data){
+							this.msg = data;
+						}.bind(this));
+					},
+					template : '#aaa',
+					components : {
+						bbb : {
+							data(){
+								return {
+									msg : 10
+								}
+							},
+							methods : {
+								send : function(){
+									Event.$emit('Bmsg', this.msg);
+								}
+							},
+							template : '#bbb'
+						}
+					}
+				}
+			}
+		})
+
+	</script>
+</body>
+</html>
