@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>$mount</title>
+</head>
+<body>
+	<div id='app'>
+		{{msg}}
+	</div>
+	<script src='../js/vue.js'></script>
+	<script>
+		new Vue({
+			data : {
+				msg : 'vue'
+			}	
+		}).$mount('#app');  //不写 el : ‘#app’ 了
+	</script>
+</body>
+</html>

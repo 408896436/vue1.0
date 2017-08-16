@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>数据只更新一次</title>
+</head>
+<body>
+	<div id='app'>
+		{{*val}}
+		<input type='button' value='add' @click='add'>
+	</div>
+	<script src='../js/vue.js'></script>
+	<script>
+		new Vue({
+			el : '#app',
+			data : {
+				val : 0
+			},
+			methods : {
+				add : function(){
+					this.val++;
+				}
+			}
+		});
+	</script>
+</body>
+</html>

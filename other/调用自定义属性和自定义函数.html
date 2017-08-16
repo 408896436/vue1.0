@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>调用自定义属性和自定义函数</title>
+</head>
+<body>
+	<div id='app'>
+	</div>
+	<script src='../js/vue.js'></script>
+	<script>
+		var vm = new Vue({
+			el : '#app',
+			a : 33,
+			show : function(){
+				alert(12);
+			}
+		});
+		console.log(vm.$options.a);
+		vm.$options.show();
+	</script>
+</body>
+</html>
