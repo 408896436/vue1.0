@@ -1,5 +1,4 @@
-子路由
 计算属性
-动画
+动画 xxxx
 .vue
 vue-cil

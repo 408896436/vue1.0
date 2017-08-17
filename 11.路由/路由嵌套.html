@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>路由嵌套</title>
+</head>
+<body>
+	<div id='app'>
+		<ul>
+			<li><a v-link="{path:'/index'}">主页</a></li>
+			<li><a v-link="{path:'/news'}">新闻</a></li>
+		</ul>
+		<div>
+			<router-view></router-view>
+		</div>
+	</div>
+	
+	<template id='index'>
+		<h2>我是主页</h2>
+	</template>
+
+	<template id='news'>
+		<h2>我是新闻页</h2>
+		<a v-link="{path:'/news/news1'}">新闻1</a>
+		<a v-link="{path:'/news/news2'}">新闻2</a>
+		<br/>
+		<router-view></router-view>
+	</template>
+
+	<template id='news1'>
+		11111111111
+	</template>
+
+	<template id='news2'>
+		22222222222
+	</template>
+		
+	<script src='../js/vue.js'></script>
+	<script src='../js/vue-router.js'></script>
+	<script>
+		var App = Vue.extend();
+
+		var router = new VueRouter();
+
+		router.map({
+			'index' : {
+				component : {'template' : '#index'}
+			},
+			'news' : {
+				component : {'template' : '#news'},
+				subRoutes:
+				{
+					'news1' : {
+						component : {'template' : '#news1'}
+					},
+					'news2' : {
+						component : {'template' : '#news2'}
+					}
+				}
+			}
+		});
+
+		router.start(App, '#app');
+
+		router.redirect({
+			'/':'/index'
+		});
+
+	</script>
+</body>
+</html>

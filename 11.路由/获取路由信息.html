@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>获取路由信息</title>
+</head>
+<body>
+	<div id='app'>
+		<a v-link="{path:'/user/blue'}">用户</a>
+		<div>
+			<router-view></router-view>
+		</div>
+	</div>
+	<template id='user'>
+		<h2>{{$route.params | json}}</h2>
+	</template>
+	<script src='../js/vue.js'></script>
+	<script src='../js/vue-router.js'></script>
+	<script>
+		var App = Vue.extend();
+		var router = new VueRouter();
+		router.map({
+			'user/:id' : {
+				component : {'template' : '#user'}
+			}
+		});
+		router.start(App, '#app');
+	</script>
+</body>
+</html>
